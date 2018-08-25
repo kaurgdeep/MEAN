@@ -1,0 +1,14 @@
+
+<a href="/home">Home</a>
+<h1>Name: <%=details.name %></h1>
+<img src="<%=details.image %>" alt="">
+<p> Age: <%=details.age %></p>
+<p>favourite food: <%=details.food %></p>
+<p>sleeping spots:
+    <ul>
+        <% for(var x in details.sleeping_spot){%>
+            <li><%=details.sleeping_spot[x].name %></li>
+        <%}%>
+        
+    </ul>
+</p>

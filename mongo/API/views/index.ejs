@@ -1,0 +1,11 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+    <script>
+        $(document).ready(function(){
+            $.get("https://pokeapi.co/api/v2/pokemon/4/", function(data){
+                    console.log("Received data from API", data);
+                var mypokemon = data.name;
+            })
+        })
+    </script>

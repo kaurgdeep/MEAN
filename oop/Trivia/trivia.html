@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>trivia</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function(){
+        $(".fireButton").click(function () {
+            $.get("https://opentdb.com/api.php?amount=10", Trivia)
+            // Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+            function Trivia(data) {
+                var allquestions = ""
+                var answers = ""
+                for(var item in data){
+                    // console.log(item)
+                    for(var i = 0; i<data[item].length; i++) {
+                       allquestions += '<div> Question: ' + data[item][i].question + '<br> Possible Answers: ' + data[item][i].correct_answer + ", " + data[item][i].incorrect_answers + '</div>'
+                        // console.log(data[item][i].question);
+                        // for(var c=0; c<data[item][i].length; c++) {
+                        //     data[item][i].category[c].answers   
+                        // }
+                    }
+                    $(".questions").html(allquestions)
+                }
+
+            }
+        });
+});
+    </script>
+
+    <button class="fireButton">Click Me</button>
+    <div class="questions"></div>
+    
+</body>
+
+</html>
